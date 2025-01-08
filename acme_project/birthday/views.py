@@ -8,9 +8,10 @@ from .utils import calculate_birthday_countdown
 
 
 def birthday(request):
-    form = BirthdayForm(request.GET or None)
+    form = BirthdayForm(request.POST or None)
     context = {'form': form}
     if form.is_valid():
+        form.save()
         # ...вызовем функцию подсчёта дней:
         birthday_countdown = calculate_birthday_countdown(
             # ...и передаём в неё дату из словаря cleaned_data.
