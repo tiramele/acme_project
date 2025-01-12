@@ -1,11 +1,7 @@
 # birthday/views.py
-# Импортируем шорткат для получения объекта или вызова 404 ошибки.
 from django.shortcuts import get_object_or_404, redirect, render
-# Импортируем модель дней рождения.
 from .models import Birthday
-# Импортируем класс BirthdayForm, чтобы создать экземпляр формы.
 from .forms import BirthdayForm
-# Импортируем из utils.py функцию для подсчёта дней.
 from .utils import calculate_birthday_countdown
 
 
@@ -37,7 +33,7 @@ def birthday(request, pk=None):
     else:
         # Связывать форму с объектом не нужно, установим значение None.
         instance = None
-    # Передаём в форму либо данные из запроса, либо None. 
+    # Передаём в форму либо данные из запроса, либо None.
     # В случае редактирования прикрепляем объект модели.
     form = BirthdayForm(request.POST or None, instance=instance)
     # Остальной код без изменений.
@@ -49,7 +45,7 @@ def birthday(request, pk=None):
             form.cleaned_data['birthday']
         )
         context.update({'birthday_countdown': birthday_countdown})
-    return render(request, 'birthday/birthday.html', context) 
+    return render(request, 'birthday/birthday.html', context)
 
 
 def birthday_list(request):
