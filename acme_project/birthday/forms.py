@@ -3,7 +3,7 @@ from django import forms
 # Импортируем класс модели Birthday.
 from .models import Birthday
 # Импортируем функцию-валидатор.
-from .validators import real_age
+# from .validators import real_age
 # Импортируем класс ошибки валидации.
 from django.core.exceptions import ValidationError
 
